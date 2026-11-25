@@ -5,7 +5,7 @@ import javax.swing.*;
 
 public class LabAccessVerificationForm extends JFrame {
 
-    // A.1 Class-level variables (remain across button clicks)
+    
     private final String expectedId = "2026-001";
     private final String expectedCode = "LAB123";
     private int attemptsRemaining = 3;
@@ -68,32 +68,32 @@ public class LabAccessVerificationForm extends JFrame {
         setLocationRelativeTo(null);
     }
 
-    // A.2 Verify button event
+    
     private void btnVerifyActionPerformed(java.awt.event.ActionEvent evt) {
-        // STEP 1-2: read inputs
+       
         String studentId = txtStudentId.getText();
         char[] codeChars = pwdAccessCode.getPassword();
         String accessCode = new String(codeChars);
 
-        // STEP 3: blank check first (does not cost an attempt)
+       
         if (studentId.isBlank() || accessCode.isBlank()) {
             lblStatus.setText("Complete both fields.");
             return;
         }
 
-        // STEP 4: compare with equals()
+        
         boolean idMatches = studentId.equals(expectedId);
         boolean codeMatches = accessCode.equals(expectedCode);
 
-        // STEP 5: both must match
+       
         if (idMatches && codeMatches) {
             lblStatus.setText("Verification accepted.");
         } else {
-            // STEP 6: count failed attempt
+            
             attemptsRemaining--;
             lblAttempts.setText(String.valueOf(attemptsRemaining));
 
-            // STEP 7: stop at zero
+           
             if (attemptsRemaining <= 0) {
                 lblStatus.setText("No attempts remaining.");
                 btnVerify.setEnabled(false);
@@ -103,7 +103,7 @@ public class LabAccessVerificationForm extends JFrame {
         }
     }
 
-    // A.10 Clear button event (does NOT reset attemptsRemaining)
+  
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {
         txtStudentId.setText("");
         pwdAccessCode.setText("");

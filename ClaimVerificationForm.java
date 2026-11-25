@@ -5,7 +5,7 @@ import javax.swing.*;
 
 public class ClaimVerificationForm extends JFrame {
 
-    // My own sample values (not 2026-001 / LAB123)
+   
     private final String expectedReference = "CLM-4821";
     private final String expectedClaimCode = "PICKUP77";
     private int claimAttemptsLeft = 3;
@@ -72,7 +72,7 @@ public class ClaimVerificationForm extends JFrame {
         String reference = txtReference.getText();
         String claimCode = new String(pwdClaimCode.getPassword());
 
-        // Blank input is rejected first and costs no attempt
+        
         if (reference.isBlank() || claimCode.isBlank()) {
             lblResult.setText("Enter both Reference No. and Claim Code.");
             return;
@@ -95,7 +95,7 @@ public class ClaimVerificationForm extends JFrame {
         }
     }
 
-    // Reset clears inputs only; attempts are NOT restored
+ 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {
         txtReference.setText("");
         pwdClaimCode.setText("");
